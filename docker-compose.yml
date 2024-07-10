@@ -30,7 +30,7 @@ services:
   order-service:
     build: ./order-service
     ports:
-      - "3003:3001"
+      - "3003:3003"
     depends_on:
       - mongo
     networks:
