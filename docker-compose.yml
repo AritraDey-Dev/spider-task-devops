@@ -12,7 +12,7 @@ services:
   user-service:
     build: ./user-service
     ports:
-      - "3003:3003"
+      - "3001:3001"
     depends_on:
       - mongo
     networks:
@@ -34,7 +34,11 @@ services:
   order-service:
     build: ./order-service
     ports:
+<<<<<<< HEAD
       - "3001:3001"
+=======
+      - "3003:3003"
+>>>>>>> origin/main
     depends_on:
       - mongo
     networks:
