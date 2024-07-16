@@ -5,7 +5,7 @@ services:
     image: mongo:latest
     container_name: mongo
     ports:
-      - "27018:27017"
+      - "27017:27017"
     networks:
       - ecom-website
 
@@ -18,7 +18,7 @@ services:
     networks:
       - ecom-website
     environment:
-      - MONGO_URL=mongodb://mongo:27017/userdb
+      - MONGO_URI=mongodb://mongo:27017/userdb
 
   product-service:
     build: ./product-service
@@ -29,22 +29,18 @@ services:
     networks:
       - ecom-website
     environment:
-      - MONGO_URL=mongodb://mongo:27017/productdb
+      - MONGO_URI=mongodb://mongo:27017/productdb
 
   order-service:
     build: ./order-service
     ports:
-<<<<<<< HEAD
-      - "3001:3001"
-=======
       - "3003:3003"
->>>>>>> origin/main
     depends_on:
       - mongo
     networks:
       - ecom-website
     environment:
-      - MONGO_URL=mongodb://mongo:27017/orderdb
+      - MONGO_URI=mongodb://mongo:27017/orderdb
 
 networks:
   ecom-website:
