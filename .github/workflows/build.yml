@@ -1,10 +1,7 @@
-name: CI/CD Pipeline
+name: ci/cd pipeline
 
 on:
   push:
-    branches:
-      - main
-  pull_request:
     branches:
       - main
 
@@ -30,7 +27,7 @@ jobs:
         with:
           context: ./user-service
           file: ./user-service/Dockerfile
-          push: ${{ github.event_name == 'push' }}
+          push: true
           tags: ${{ secrets.DOCKER_USERNAME }}/user-service:latest
 
       - name: Build and push product service
@@ -38,7 +35,7 @@ jobs:
         with:
           context: ./product-service
           file: ./product-service/Dockerfile
-          push: ${{ github.event_name == 'push' }}
+          push: true
           tags: ${{ secrets.DOCKER_USERNAME }}/product-service:latest
 
       - name: Build and push order service
@@ -46,5 +43,5 @@ jobs:
         with:
           context: ./order-service
           file: ./order-service/Dockerfile
-          push: ${{ github.event_name == 'push' }}
+          push: true
           tags: ${{ secrets.DOCKER_USERNAME }}/order-service:latest
