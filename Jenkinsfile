@@ -3,14 +3,14 @@ pipeline {
 
     environment {
         DOCKER_CREDENTIALS_ID = 'dockerhub-credentials' 
-        IMAGE_TAG = "${env.BUILD_NUMBER}"
-        DOCKER_REPO = 'coderaritra'        
+        IMAGE_TAG = "${env.BUILD_NUMBER}"              
+        DOCKER_REPO = 'coderaritra'                 
     }
 
     stages {
         stage('Checkout') {
             steps {
-                git branch: 'main', url: 'https://github.com/adey-github/spider-task-devops.git'
+                git branch: 'main', url: 'https://github.com/adey-github/spider-task-devops.git' // Your repository URL
             }
         }
 
